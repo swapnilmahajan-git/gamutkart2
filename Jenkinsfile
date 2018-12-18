@@ -12,7 +12,7 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-		            sh 'sshpass -p "gamut" scp /home/swapnil/.jenkins/workspace/gamutkart/target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
+		            sh 'sshpass -p "gamut" scp /home/swapnil/.jenkins/workspace/swapnil_pipeline_jenkinsfile/target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 			  }}
 	}
 }
