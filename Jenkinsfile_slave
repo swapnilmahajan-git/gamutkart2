@@ -1,17 +1,20 @@
 pipeline {
 	agent {
-		label 'win-label-1'
+		label 'slave1'
 	} 
 
 	stages {
 	    stage('Checkout') {
 	        steps {
-				checkout scm			        }
-		    }
+			checkout scm			       
+		      }}
 		stage('Build') {
-	        steps {
-				sh '/home/gamut/Distros/apache-maven-3.5.4/bin/mvn install'
-	        }
-		}
+	           steps {
+			   sh '/home/swapnil/Documents/jenkins-server/apache-maven-3.6.0/bin/mvn install'
+	                 }}
+		stage('Deployment'){
+		    steps {
+		            sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
+			  }}
 	}
 }
