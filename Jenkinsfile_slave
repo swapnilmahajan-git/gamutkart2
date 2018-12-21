@@ -14,8 +14,6 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-			    /bin/sh
-
 		            sh 'sshpass -p "gamut" scp /home/gamut/build/workspace/gamutkart4/target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 			  }}
 	}
