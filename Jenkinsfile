@@ -11,6 +11,7 @@ pipeline {
 			   sh '/home/swapnil/Documents/jenkins-server/apache-maven-3.6.0/bin/mvn install'
 	                 }}
 		stage('Deployment'){
+		    steps {
 		            if (env.ENVIRONMENT == 'QA'){
 					sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 
