@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	parameters {
-		choice(name: 'env.ENVIRONMENT', choices: ['QA', 'SIT'], description: 'Pick Environment value')
+		choice(name: 'ENVIRONMENT', choices: ['QA', 'SIT'], description: 'Pick Environment value')
 	}
 	stages {
 	    stage('Checkout') {
@@ -21,6 +21,7 @@ pipeline {
 					sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 
 					sh 'sshpass -p "gamut" ssh gamut@172.17.0.3 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_191" "/home/gamut/Distros/apache-tomcat-8.5.35/bin/startup.sh"'
+					echo "Hello ${params.ENVIRONMENT}"
 				}
 			   else if(env.ENVIRONMENT == 'SIT'){
 					sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.4:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
