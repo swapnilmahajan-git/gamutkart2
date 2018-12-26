@@ -1,5 +1,3 @@
-#!/bin/bash
-
 pipeline {
 	agent {
 		label 'slave1'
@@ -16,7 +14,7 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-		            sh 'sshpass -p "gamut" scp /home/gamut/build/workspace/jenkins_pipeline_slave/target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
+		            sh 'sshpass -p ssh -o StrictHostKeyChecking=no"gamut" scp /home/gamut/build/workspace/jenkins_pipeline_slave/target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 			  }}
 	}
 }
