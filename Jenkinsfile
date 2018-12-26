@@ -12,9 +12,6 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-			
-			script {
-
 		            if (env.ENVIRONMENT == 'QA'){
 					sh 'sshpass -p "gamut" scp target/gamutkart.war gamut@172.17.0.3:/home/gamut/Distros/apache-tomcat-8.5.35/webapps'
 
@@ -25,7 +22,7 @@ pipeline {
 
 					sh 'sshpass -p "gamut" ssh gamut@172.17.0.4 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_191" "/home/gamut/Distros/apache-tomcat-8.5.35/bin/startup.sh"'
 				}
-			  }}}
+			  }}
        		
 	}
 
