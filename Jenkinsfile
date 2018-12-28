@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	triggers { 
+		pollSCM('H/1 * * * 1-7') 
+	}
 	parameters {
 		choice(name: 'ENVIRONMENT', choices: ['QA', 'SIT'], description: 'Pick Environment value')
 	}
@@ -34,5 +37,4 @@ pipeline {
 			  }}}
        		
 	}
-
 }
