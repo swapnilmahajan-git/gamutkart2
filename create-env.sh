@@ -12,4 +12,4 @@ do
 	echo "=============================="
 done
 
-docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -a -q` >IP.txt
+docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -a -q` > IP.txt
