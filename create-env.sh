@@ -11,5 +11,4 @@ do
     echo "www.gamutkart$i container has been created!"
 	echo "=============================="
 done
-
-docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -a -q` >ips.txt
+docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -a -q` >IP.txt
