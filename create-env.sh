@@ -7,9 +7,8 @@ do
 	echo "=============================="
     echo "Creating www.gamutkart$i container.."
     sleep 1
-    docker run --name www.gamutkart$i -d -it swapnilhub/test-image /bin/bash
+    docker run --name www.gamutkart$i -d -it swapnilhub/jenkinsfile-image /bin/bash
     echo "www.gamutkart$i container has been created!"
 	echo "=============================="
 done
 
-docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' `docker ps -a -q` > IP.txt
