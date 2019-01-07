@@ -5,7 +5,7 @@ pipeline{
 	}
 	
 	parameters{
-		string(name : 'DEPLOY_ENV', defaultValue: 'staging' description: 'mutiple environment')	
+		string(name : 'DEPLOY_ENV', defaultValue: 'staging', description: 'mutiple environment')	
 	}
 
 	stages{
