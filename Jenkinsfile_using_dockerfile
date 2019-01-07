@@ -1,9 +1,7 @@
 pipeline{
 
-	agent{
-	  label 'slave2'	
-	}
-	
+	agent any
+	  
 	parameters{
 		string(name : 'DEPLOY_ENV', defaultValue: 'staging', description: 'mutiple environment')	
 	}
