@@ -25,7 +25,7 @@ pipeline{
 		}}
 		stage('Merge'){
 			steps{
-			   sh 'git checkout master'
+			   sh 'git checkout origin/master'
 		           sh 'git merge origin/dev1.1'
 		}}
 		
