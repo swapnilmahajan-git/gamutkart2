@@ -1,6 +1,6 @@
 pipeline {
 	agent any
-
+	
 	stages {
 	    stage('Checkout') {
 	        steps {
@@ -12,7 +12,8 @@ pipeline {
 	                 }}
 		stage('Deployment'){
 		    steps {
-			  sh 'sshpass -p "dev" scp target/gamutkart.war swapnil@172.19.0.1:/home/swapnil/Documents/jenkins-server/apache-tomcat-8.5.35/webapps'
-			}}	
-}
+			   sh 'sshpass -p "dev" scp target/gamutkart.war swapnil@172.19.0.1:/home/swapnil/Documents/jenkins-server/apache-tomcat-8.5.35/webapps'
+			}}
+       		
+	}
 }
