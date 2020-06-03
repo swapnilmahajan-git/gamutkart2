@@ -16,11 +16,12 @@ pipeline {
       				sh 'mvn clean package sonar:sonar'
 			}} // submitted SonarQube taskId is automatically attached to the pipeline context
   			}
-		stage("Quality Gate") {
+		stage("Quality Gate Status check") {
             	    steps {
                          timeout(time: 1, unit: 'HOURS') {
                           waitForQualityGate abortPipeline: true
-                 }
+                 	}
+		    }
                 }
 		stage('Deployment'){
 		    steps {
